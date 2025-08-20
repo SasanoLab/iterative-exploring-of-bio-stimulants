@@ -1,0 +1,76 @@
+[project]
+name = "moonshot-bio-stimulant"
+version = "0.1.0"
+description = "Add your description here"
+authors = [{ name = "hppRC", email = "hpp.ricecake@gmail.com" }]
+dependencies = [
+    "torch==2.1.0+cu118",
+    "numpy>=1.26.4",
+    "pandas>=2.2.2",
+    "transformers>=4.40.2",
+    "tqdm>=4.66.4",
+    "sentencepiece>=0.2.0",
+    "PubChemPy>=1.0.4",
+    "more-itertools>=10.2.0",
+    "torchmetrics>=1.4.0",
+    "openpyxl>=3.1.2",
+    "accelerate>=0.30.0",
+    "tokenizers>=0.19.1",
+    "tensorboard>=2.16.2",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = ["pip>=23.3.2", "setuptools>=69.0.3", "wheel>=0.42.0"]
+
+[[tool.rye.sources]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cu118"
+type = "index"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".venv",
+    "outputs",
+    "datasets",
+    "prev",
+]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+unfixable = []
+# https://qiita.com/yuji38kwmt/items/63e82126076204923520
+select = ["F", "E", "W", "I", "B", "PL", "UP", "N"]
+ignore = [
+    "PLR0913", # Too many arguments in function definition
+    "PLR2004", # Magic value used in comparison
+    "N812",    # Lowercase imported as non-lowercase
+    "N806",    # Lowercase imported as non-lowercase
+    "F403",    # unable to detect undefined names
+    "E501",    # Line too long
+    "N999",    # Invalid module name
+    "PLR0912", # too many branches
+    "B905",    # zip strict
+    "UP007",   # Use `X | Y` for type annotations
+]
+
+[tool.ruff.format]
+quote-style = "double"
+line-ending = "auto"
