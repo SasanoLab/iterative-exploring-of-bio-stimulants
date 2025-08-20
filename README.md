@@ -1,6 +1,6 @@
 # bio-stimulant
 
-論文: [論文テキストを用いた化合物探索の漸進的効率化](https://ipsj.ixsq.nii.ac.jp/records/226105)
+論文: [論文テキストを用いた化合物探索の漸進的効率化](https://ipsj.ixsq.nii.ac.jp/records/226105), NL256
 
 ## 概要
 
